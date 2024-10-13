@@ -1,36 +1,5 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+I want to create a geography quiz app using the Next.js app router.
 
-## Getting Started
+The homepage should have a heading that says "Choose a continent" and it should have a button for each continent. When a continent button is clicked, it should go to a new route for the selected continent (i.e. /north-america, /europe, /asia, etc.). This will be referred to as the "continent page".
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+On the continent page, it should display a random country name, based on the continent route the user is viewing and then a simple map should be rendered of the continent that only displays borders for each country of the continent and nothing more. There should be a score that displays "0/[NUMBER_OF_COUNTRIES_IN_THE_CONTINENT]" The user will click on the country that corresponds to the random country name and a toast will be displayed letting the user know if they clicked on the correct country or not. The user will only get one guess for each random country. If the user clicks on the correct country, the numerator in the score should be incremented by 1. If the user does not click the correct country, the numerator in the score should not be incremented. After a few seconds, the toast should automatically be dismissed and a new random country should be selected and displayed to the user and the process repeats as described previously. Once all of the countries in the continent have been exhausted, the map should fill in each country as either green or red, depending if the user got that country right or not and a button should be displayed for the user to start over.
