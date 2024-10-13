@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { toast, Toaster } from 'react-hot-toast'
 import { Button } from "@/components/ui/button"
@@ -26,15 +26,7 @@ export default function ContinentQuiz() {
   const [highlightedCountries, setHighlightedCountries] = useState<Record<string, string>>({})
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
-  useEffect(() => {
-    if (!continentData[continent]) {
-      router.push('/')
-      return
-    }
-    initializeGame()
-  }, [continent, router])
-
-  const initializeGame = () => {
+  const initializeGame = useCallback(() => {
     const continentCountries = continentData[continent]
     setCountries(continentCountries)
     setCurrentCountry(continentCountries[Math.floor(Math.random() * continentCountries.length)])
@@ -42,7 +34,15 @@ export default function ContinentQuiz() {
     setGameOver(false)
     setHighlightedCountries({})
     setIsLoading(false)
-  }
+  }, [continent])
+
+  useEffect(() => {
+    if (!continentData[continent]) {
+      router.push('/')
+      return
+    }
+    initializeGame()
+  }, [continent, initializeGame, router])
 
   const handleCountryClick = (clickedCountry: string) => {
     if (clickedCountry === currentCountry) {
