@@ -73,7 +73,7 @@ export default function ContinentQuiz() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4">
       <h1 className="text-4xl font-bold mb-4 capitalize">{continent.replace('-', ' ')} Quiz</h1>
       {isGameOver ? (
         <>

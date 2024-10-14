@@ -12,7 +12,7 @@ const continents = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center">
       <h1 className="text-4xl font-bold mb-8">Choose a continent</h1>
       <div className="grid grid-cols-2 gap-4">
         {continents.map((continent) => (
