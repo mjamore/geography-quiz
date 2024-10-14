@@ -65,7 +65,7 @@ const ContinentMap: React.FC<ContinentMapProps> = ({
 
   return (
     <div className='w-[950px] h-[790px]'>
-      <svg viewBox={viewBox} preserveAspectRatio="xMidYMid meet">
+      <svg preserveAspectRatio="xMidYMid meet" viewBox={viewBox}>
         <g transform={`scale(${scale})`}>
           {Object.entries(continentMap).map(([country, path]) => (
             <path
