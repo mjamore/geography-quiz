@@ -9,12 +9,13 @@ import { southAmericaMap } from '../../svg-definitions/south-america';
 import { oceaniaMap } from '../../svg-definitions/oceania';
 import { asiaMap } from '../../svg-definitions/asia';
 import { africaMap } from '../../svg-definitions/africa';
+import { europeMap } from '../../svg-definitions/europe';
 import ContinentMap from './ContinentMap';
 
 const continentData: Record<string, string[]> = {
   'north-america': Object.entries(northAmericaMap).map(([country]) => country),
   'south-america': Object.entries(southAmericaMap).map(([country]) => country),
-  'europe': ['France', 'Germany', 'Italy', 'Spain', 'United Kingdom'],
+  'europe': Object.entries(europeMap).map(([country]) => country),
   'africa': Object.entries(africaMap).map(([country]) => country),
   'asia': Object.entries(asiaMap).map(([country]) => country),
   'oceania': Object.entries(oceaniaMap).map(([country]) => country),
