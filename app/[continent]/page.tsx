@@ -78,37 +78,35 @@ export default function ContinentQuiz() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4">
-      <h1 className="text-4xl font-bold mb-4 capitalize">{continent.replace('-', ' ')} Quiz</h1>
+    <div className="flex flex-col items-center justify-center p-4">
+      <h1 className="text-4xl font-bold mb-4 capitalize">{continent.replace('-', ' ')}</h1>
       {isGameOver ? (
         <>
           <p className="text-2xl mb-4">Game Over!</p>
           <p className="text-xl mb-4">Final Score: {score}/{continentData[continent].length}</p>
-          <div className="w-full max-w-2xl aspect-square">
-            <ContinentMap
-              continent={continent}
-              countries={[]}
-              highlightedCountries={highlightedCountries}
-              onCountryClick={() => {}}
-            />
-          </div>
+          <ContinentMap
+            continent={continent}
+            countries={[]}
+            highlightedCountries={highlightedCountries}
+            onCountryClick={() => {}}
+          />
         </>
       ) : (
         <>
           <p className="text-2xl mb-4">Find: <span className='font-bold'>{currentCountry}</span></p>
-          <p className="text-xl mb-4">Score: {score}/{continentData[continent].length}</p>
-          <div className="w-full max-w-2xl aspect-square">
-            <ContinentMap
-              continent={continent}
-              countries={countries}
-              highlightedCountries={highlightedCountries}
-              onCountryClick={handleCountryClick}
-            />
-          </div>
+          <ContinentMap
+            continent={continent}
+            countries={countries}
+            highlightedCountries={highlightedCountries}
+            onCountryClick={handleCountryClick}
+          />
         </>
       )}
-      <Button className="mt-4" onClick={initializeGame}>Start Over</Button>
-      <Toaster />
+      <div className='flex items-center justify-center gap-6 mt-2'>
+        <p className="text-xl">Score: {score}/{continentData[continent].length}</p>
+        <Button onClick={initializeGame}>Start Over</Button>
+      </div>
+      <Toaster position='bottom-right' />
     </div>
   );
 }

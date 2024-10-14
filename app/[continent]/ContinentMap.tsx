@@ -20,6 +20,9 @@ const ContinentMap: React.FC<ContinentMapProps> = ({
   highlightedCountries,
 }) => {
   let continentMap: Record<string, string> = {};
+  let viewBox = '-100 0 950 770';
+  let scale = '1.7';
+
   // create a switch statement to return the correct continent map
   switch (continent) {
     case 'north-america':
@@ -27,18 +30,28 @@ const ContinentMap: React.FC<ContinentMapProps> = ({
       break;
     case 'south-america':
       continentMap = southAmericaMap;
+      viewBox = '500 1450 950 790';
+      scale = '3.4';
       break;
     case 'europe':
       continentMap = europeMap;
+      viewBox = '-100 0 950 770';
+      scale = '1.0';
       break;
     case 'africa':
       continentMap = africaMap;
+      viewBox = '1300 1220 950 770';
+      scale = '3.5';
       break;
     case 'asia':
       continentMap = asiaMap;
+      viewBox = '850 80 950 770';
+      scale = '1.7';
       break;
     case 'oceania':
       continentMap = oceaniaMap;
+      viewBox = '2150 1200 950 770';
+      scale = '3';
       break;
     default:
       break;
@@ -51,19 +64,23 @@ const ContinentMap: React.FC<ContinentMapProps> = ({
   };
 
   return (
-    <svg className="w-full h-full max-w-2xl" viewBox="0 0 600 600">
-      {Object.entries(continentMap).map(([country, path]) => (
-        <path
-          aria-label={country}
-          className={`stroke-gray-800 outline-none ${getCountryColor(country)}`}
-          d={path}
-          key={country}
-          role="button"
-          tabIndex={countries.includes(country) ? 0 : -1}
-          onClick={() => countries.includes(country) && onCountryClick(country)}
-        />
-      ))}
-    </svg>
+    <div className='w-[950px] h-[790px]'>
+      <svg viewBox={viewBox} preserveAspectRatio="xMidYMid meet">
+        <g transform={`scale(${scale})`}>
+          {Object.entries(continentMap).map(([country, path]) => (
+            <path
+              aria-label={country}
+              className={`stroke-gray-800 outline-none ${getCountryColor(country)}`}
+              d={path}
+              key={country}
+              role="button"
+              tabIndex={countries.includes(country) ? 0 : -1}
+              onClick={() => countries.includes(country) && onCountryClick(country)}
+            />
+          ))}
+        </g>
+      </svg>
+    </div>
   );
 };
 
