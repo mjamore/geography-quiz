@@ -2,7 +2,7 @@ import React from 'react';
 import { northAmericaMap } from '../../svg-definitions/north-america';
 import { southAmericaMap } from '../../svg-definitions/south-america';
 import { asiaMap } from '../../svg-definitions/asia';
-// import { africaMap } from '../../svg-definitions/africa';
+import { africaMap } from '../../svg-definitions/africa';
 // import { europeMap } from '../../svg-definitions/europe';
 import { oceaniaMap } from '../../svg-definitions/oceania';
 
@@ -31,9 +31,9 @@ const ContinentMap: React.FC<ContinentMapProps> = ({
     // case 'europe':
     //   continentMap = europeMap;
     //   break;
-    // case 'africa':
-    //   continentMap = africaMap;
-    //   break;
+    case 'africa':
+      continentMap = africaMap;
+      break;
     case 'asia':
       continentMap = asiaMap;
       break;
