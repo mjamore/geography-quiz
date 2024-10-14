@@ -21,16 +21,16 @@ const ContinentMap: React.FC<ContinentMapProps> = ({
   };
 
   return (
-    <svg viewBox="0 0 600 600" className="w-full h-full max-w-2xl">
+    <svg className="w-full h-full max-w-2xl" viewBox="0 0 600 600">
       {Object.entries(northAmericaMap).map(([country, path]) => (
         <path
-          key={country}
-          d={path}
-          className={`stroke-gray-800 outline-none ${getCountryColor(country)}`}
-          onClick={() => countries.includes(country) && onCountryClick(country)}
-          role="button"
           aria-label={country}
+          className={`stroke-gray-800 outline-none ${getCountryColor(country)}`}
+          d={path}
+          key={country}
+          role="button"
           tabIndex={countries.includes(country) ? 0 : -1}
+          onClick={() => countries.includes(country) && onCountryClick(country)}
         />
       ))}
     </svg>

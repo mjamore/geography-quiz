@@ -3,9 +3,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { toast, Toaster } from 'react-hot-toast';
-import { Button } from "@/components/ui/button";
-import ContinentMap from './ContinentMap';
+import { Button } from '@/components/ui/button';
 import { northAmericaMap } from '../../svg-definitions/north-america';
+import ContinentMap from './ContinentMap';
 
 const continentData: Record<string, string[]> = {
   'north-america': Object.entries(northAmericaMap).map(([country]) => country),
@@ -48,10 +48,10 @@ export default function ContinentQuiz() {
     if (clickedCountry === currentCountry) {
       toast.success('Correct!');
       setScore(score + 1);
-      setHighlightedCountries({...highlightedCountries, [clickedCountry]: 'green'});
+      setHighlightedCountries({ ...highlightedCountries, [clickedCountry]: 'green' });
     } else {
       toast.error('Incorrect!');
-      setHighlightedCountries({...highlightedCountries, [currentCountry]: 'red'});
+      setHighlightedCountries({ ...highlightedCountries, [currentCountry]: 'red' });
     }
 
     const remainingCountries = countries.filter(country => country !== currentCountry);
@@ -80,11 +80,11 @@ export default function ContinentQuiz() {
           <p className="text-2xl mb-4">Game Over!</p>
           <p className="text-xl mb-4">Final Score: {score}/{continentData[continent].length}</p>
           <div className="w-full max-w-2xl aspect-square">
-            <ContinentMap 
-              continent={continent} 
-              countries={[]} 
-              onCountryClick={() => {}}
+            <ContinentMap
+              continent={continent}
+              countries={[]}
               highlightedCountries={highlightedCountries}
+              onCountryClick={() => {}}
             />
           </div>
         </>
@@ -93,16 +93,16 @@ export default function ContinentQuiz() {
           <p className="text-2xl mb-4">Find: <span className='font-bold'>{currentCountry}</span></p>
           <p className="text-xl mb-4">Score: {score}/{continentData[continent].length}</p>
           <div className="w-full max-w-2xl aspect-square">
-            <ContinentMap 
-              continent={continent} 
-              countries={countries} 
-              onCountryClick={handleCountryClick}
+            <ContinentMap
+              continent={continent}
+              countries={countries}
               highlightedCountries={highlightedCountries}
+              onCountryClick={handleCountryClick}
             />
           </div>
         </>
       )}
-      <Button onClick={initializeGame} className="mt-4">Start Over</Button>
+      <Button className="mt-4" onClick={initializeGame}>Start Over</Button>
       <Toaster />
     </div>
   );

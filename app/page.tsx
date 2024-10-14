@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 
 const continents = [
   { name: 'North America', slug: 'north-america' },
@@ -16,7 +16,7 @@ export default function Home() {
       <h1 className="text-4xl font-bold mb-8">Choose a continent</h1>
       <div className="grid grid-cols-2 gap-4">
         {continents.map((continent) => (
-          <Link key={continent.slug} href={`/${continent.slug}`}>
+          <Link href={`/${continent.slug}`} key={continent.slug}>
             <Button className="w-full text-lg">{continent.name}</Button>
           </Link>
         ))}
