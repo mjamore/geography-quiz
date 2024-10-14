@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { northAmericaMap } from '../../svg-definitions/north-america';
 import { southAmericaMap } from '../../svg-definitions/south-america';
 import { oceaniaMap } from '../../svg-definitions/oceania';
+import { asiaMap } from '../../svg-definitions/asia';
 import ContinentMap from './ContinentMap';
 
 const continentData: Record<string, string[]> = {
@@ -14,7 +15,7 @@ const continentData: Record<string, string[]> = {
   'south-america': Object.entries(southAmericaMap).map(([country]) => country),
   'europe': ['France', 'Germany', 'Italy', 'Spain', 'United Kingdom'],
   'africa': ['Egypt', 'Nigeria', 'South Africa', 'Kenya', 'Morocco'],
-  'asia': ['China', 'India', 'Japan', 'South Korea', 'Vietnam'],
+  'asia': Object.entries(asiaMap).map(([country]) => country),
   'oceania': Object.entries(oceaniaMap).map(([country]) => country),
 };
 
