@@ -5,15 +5,17 @@ import { useParams, useRouter } from 'next/navigation';
 import { toast, Toaster } from 'react-hot-toast';
 import { Button } from '@/components/ui/button';
 import { northAmericaMap } from '../../svg-definitions/north-america';
+import { southAmericaMap } from '../../svg-definitions/south-america';
+import { oceaniaMap } from '../../svg-definitions/oceania';
 import ContinentMap from './ContinentMap';
 
 const continentData: Record<string, string[]> = {
   'north-america': Object.entries(northAmericaMap).map(([country]) => country),
-  'south-america': ['Brazil', 'Argentina', 'Colombia', 'Peru', 'Chile'],
+  'south-america': Object.entries(southAmericaMap).map(([country]) => country),
   'europe': ['France', 'Germany', 'Italy', 'Spain', 'United Kingdom'],
   'africa': ['Egypt', 'Nigeria', 'South Africa', 'Kenya', 'Morocco'],
   'asia': ['China', 'India', 'Japan', 'South Korea', 'Vietnam'],
-  'oceania': ['Australia', 'New Zealand', 'Fiji', 'Papua New Guinea', 'Solomon Islands'],
+  'oceania': Object.entries(oceaniaMap).map(([country]) => country),
 };
 
 export default function ContinentQuiz() {

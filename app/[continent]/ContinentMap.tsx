@@ -1,5 +1,10 @@
 import React from 'react';
 import { northAmericaMap } from '../../svg-definitions/north-america';
+import { southAmericaMap } from '../../svg-definitions/south-america';
+// import { asiaMap } from '../../svg-definitions/asia';
+// import { africaMap } from '../../svg-definitions/africa';
+// import { europeMap } from '../../svg-definitions/europe';
+import { oceaniaMap } from '../../svg-definitions/oceania';
 
 interface ContinentMapProps {
   continent: string
@@ -9,10 +14,35 @@ interface ContinentMapProps {
 }
 
 const ContinentMap: React.FC<ContinentMapProps> = ({
+  continent,
   countries,
   onCountryClick,
   highlightedCountries,
 }) => {
+  let continentMap: Record<string, string> = {};
+  // create a switch statement to return the correct continent map
+  switch (continent) {
+    case 'north-america':
+      continentMap = northAmericaMap;
+      break;
+    case 'south-america':
+      continentMap = southAmericaMap;
+      break;
+    // case 'europe':
+    //   continentMap = europeMap;
+    //   break;
+    // case 'africa':
+    //   continentMap = africaMap;
+    //   break;
+    // case 'asia':
+    //   continentMap = asiaMap;
+    //   break;
+    case 'oceania':
+      continentMap = oceaniaMap;
+      break;
+    default:
+      break;
+  }
   const getCountryColor = (country: string) => {
     if (highlightedCountries[country] === 'green') return 'fill-green-500';
     if (highlightedCountries[country] === 'red') return 'fill-red-500';
@@ -22,7 +52,7 @@ const ContinentMap: React.FC<ContinentMapProps> = ({
 
   return (
     <svg className="w-full h-full max-w-2xl" viewBox="0 0 600 600">
-      {Object.entries(northAmericaMap).map(([country, path]) => (
+      {Object.entries(continentMap).map(([country, path]) => (
         <path
           aria-label={country}
           className={`stroke-gray-800 outline-none ${getCountryColor(country)}`}
