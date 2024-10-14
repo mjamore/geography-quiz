@@ -1,5 +1,5 @@
 import React from 'react';
-import { northAmericaMap } from '../../svg-definitions/north-america'
+import { northAmericaMap } from '../../svg-definitions/north-america';
 
 interface ContinentMapProps {
   continent: string
@@ -14,11 +14,11 @@ const ContinentMap: React.FC<ContinentMapProps> = ({
   highlightedCountries,
 }) => {
   const getCountryColor = (country: string) => {
-    if (highlightedCountries[country] === 'green') return 'fill-green-500'
-    if (highlightedCountries[country] === 'red') return 'fill-red-500'
-    if (countries.includes(country)) return 'fill-blue-200 hover:fill-blue-300'
-    return 'fill-gray-300'
-  }
+    if (highlightedCountries[country] === 'green') return 'fill-green-500';
+    if (highlightedCountries[country] === 'red') return 'fill-red-500';
+    if (countries.includes(country)) return 'fill-blue-200 hover:fill-blue-300';
+    return 'fill-gray-300';
+  };
 
   return (
     <svg viewBox="0 0 600 600" className="w-full h-full max-w-2xl">
@@ -34,7 +34,7 @@ const ContinentMap: React.FC<ContinentMapProps> = ({
         />
       ))}
     </svg>
-  )
-}
+  );
+};
 
-export default ContinentMap
+export default ContinentMap;

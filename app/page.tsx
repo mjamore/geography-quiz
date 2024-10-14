@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import { Button } from "@/components/ui/button"
+import Link from 'next/link';
+import { Button } from "@/components/ui/button";
 
 const continents = [
   { name: 'North America', slug: 'north-america' },
@@ -8,7 +8,7 @@ const continents = [
   { name: 'Africa', slug: 'africa' },
   { name: 'Asia', slug: 'asia' },
   { name: 'Oceania', slug: 'oceania' },
-]
+];
 
 export default function Home() {
   return (
@@ -22,5 +22,5 @@ export default function Home() {
         ))}
       </div>
     </div>
-  )
+  );
 }
